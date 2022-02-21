@@ -33,6 +33,15 @@ export async function watchMovie(id) {
   return checkError(response);
 }
 
+export async function unwatchMovie(id) {
+  const response = await client
+    .from('movie_watch_list')
+    .update({ watched: false })
+    .match({ id })
+    .single();
+  return checkError(response);
+}
+
 export async function getWatchList() {
   const response = await client.from('movie_watch_list').select().order('id');
   return checkError(response);

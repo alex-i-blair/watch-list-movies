@@ -1,9 +1,9 @@
 import React from 'react';
-import { watchMovie } from './services/fetch-utils';
+import { watchMovie, unwatchMovie } from './services/fetch-utils';
 
 export default function MovieListItem({ refreshListDisplay, movie }) {
   async function handleClick() {
-    await watchMovie(movie.id);
+    !movie.watched ? await watchMovie(movie.id) : await unwatchMovie(movie.id);
     await refreshListDisplay();
   }
   return (
