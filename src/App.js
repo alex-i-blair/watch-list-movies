@@ -47,7 +47,7 @@ function App() {
             <Route exact path="/">
               {currentUser ? <Redirect to="/search" /> : <AuthPage setUser={setCurrentUser} />}
             </Route>
-            <Route exact path="/watch-list">
+            <Route exact path="/watchlist">
               {!currentUser ? <Redirect to="/" /> : <WatchListPage />}
             </Route>
             <Route exact path="/search">

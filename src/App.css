@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.list-item {
+  display: block;
+  width: 500px;
+  background-color: magenta;
+  cursor: pointer;
+}
+
+.list-item img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}

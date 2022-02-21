@@ -9,7 +9,7 @@ export default function SearchPage() {
   const [watchList, setWatchList] = useState([]);
 
   async function handleSearch(e) {
-    e.preventDefault;
+    e.preventDefault();
     const response = await searchMovies(search);
     setMovies(response);
   }
@@ -26,7 +26,7 @@ export default function SearchPage() {
 
   return (
     <div>
-      <form action="" onSubmit={handleSearch}>
+      <form onSubmit={handleSearch}>
         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         <button>Search</button>
       </form>
