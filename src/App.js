@@ -12,27 +12,46 @@ function App() {
   useEffect(() => {
     async function getUserObject() {
       const data = await getUser();
-      setCurrentUser(data);
+      data && setCurrentUser(data);
     }
     getUserObject();
   }, []);
 
   async function handleLogout() {
-    logout();
+    await logout();
     setCurrentUser('');
   }
 
   return (
     <Router>
+      <div>
+        {currentUser && (
+          <ul>
+            <li>
+              <NavLink activeClassName="active-class" to="/search">
+                Search
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active-class" to="/watchlist">
+                Watchlist
+              </NavLink>
+            </li>
+          </ul>
+        )}
+      </div>
       <div className="App">
         <header>{currentUser && <button onClick={handleLogout}>Logout</button>}</header>
         <main>
           <Switch>
             <Route exact path="/">
-              {currentUser ? <Redirect to="/watch-list" /> : <AuthPage setUser={setCurrentUser} />}
+              {currentUser ? <Redirect to="/search" /> : <AuthPage setUser={setCurrentUser} />}
             </Route>
             <Route exact path="/watch-list">
               {!currentUser ? <Redirect to="/" /> : <WatchListPage />}
+            </Route>
+            <Route exact path="/search">
+              {!currentUser ? <Redirect to="/" /> : <SearchPage />}
             </Route>
           </Switch>
         </main>

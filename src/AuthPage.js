@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getUser, signInUser, signUpUser } from './services/fetch-utils';
+import { signInUser, signUpUser } from './services/fetch-utils';
 
 export default function AuthPage({ setUser }) {
   const [email, setEmail] = useState('');
