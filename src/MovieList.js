@@ -20,6 +20,7 @@ export default function MovieList({ movies, refreshListDisplay, isOnWatchList })
             key={movie.title + i}
             refreshListDisplay={refreshListDisplay}
             movie={movie}
+            isOnWatchList={isOnWatchList}
           />
         )
       )}

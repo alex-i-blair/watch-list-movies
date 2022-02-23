@@ -52,3 +52,8 @@ export async function searchMovies(query) {
   const json = await response.json();
   return json.data.results;
 }
+
+export async function removeFromWatchList(id) {
+  const response = await client.from('movie_watch_list').delete().match({ id }).single();
+  return checkError(response);
+}

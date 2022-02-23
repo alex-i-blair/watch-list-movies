@@ -49,3 +49,7 @@
   height: auto;
   object-fit: cover;
 }
+
+div.watched {
+  pointer-events: none;
+}
